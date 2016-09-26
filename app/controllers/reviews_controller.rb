@@ -61,7 +61,7 @@ class ReviewsController < ApplicationController
     def set_review
       @review = Review.find(params[:id])
     end
-    
+
     def set_restaurant
       @restaurant = Restaurant.find(params[:restaurant_id])
     end
@@ -70,13 +70,11 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:rating, :comment)
     end
-    
+
     def check_user
       unless current_user.admin?
-        redirect_to root_url, alert: "Sorry, this review belongs to admins"
+        redirect_to root_url, alert: "Sorry, This Review Belongs to Admins."
       end
     end
-    
+
 end
-     
-     

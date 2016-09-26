@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:search, :index, :show]
   before_action :check_user, except: [:search, :index, :show]
-  
+
   def search
       if params[:search].present?
         @restaurants = Restaurant.search(params[:search])
@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
         @restaurants = Restaurant.all
       end
   end
-    
+
   # GET /restaurants
   # GET /restaurants.json
   def index
@@ -72,7 +72,7 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: 'Restaurant  destroyed.' }
+      format.html { redirect_to restaurants_url, notice: 'Restaurant destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -87,11 +87,11 @@ class RestaurantsController < ApplicationController
     def restaurant_params
        params.require(:restaurant).permit(:name, :address, :phone, :website, :image)
     end
-    
+
     def check_user
      unless current_user.admin?
-        redirect_to root_url, alert: "Sorry, only admins can do that!"
+        redirect_to root_url, alert: "Sorry, Only Admins Can Do That!"
      end
     end
-    
+
 end

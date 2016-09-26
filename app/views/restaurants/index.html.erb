@@ -1,5 +1,5 @@
 <div class ="jumbotron">
-  <h2>Eat&Review --- A local based restaurants reviews site.</h2>
+  <h2>EatAgain -- A local based restaurants reviews site.</h2>
   <h3>Explore the favorite restaurants in your community.
   <br>Leave reviews and ratings for your buddies.</h3>
 </div>
@@ -23,7 +23,7 @@
       <td><%= link_to restaurant.name, restaurant %></td>
       <td><%= restaurant.address %></td>
       <td><%= restaurant.phone %></td>
-      <td><%= link_to restaurant.website, restaurant.website %></td> 
+      <td><%= link_to restaurant.website, restaurant.website %></td>
       <% if user_signed_in? && current_user.admin? %>
           <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link" %></td>
           <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
@@ -32,7 +32,7 @@
     <% end %>
 </tbody>
 </table>
-   
+
 <br>
 
 <% if user_signed_in? && current_user.admin? %>
@@ -41,5 +41,5 @@
 </br>
 
 <div class ="line">
- 
+
 </div>
